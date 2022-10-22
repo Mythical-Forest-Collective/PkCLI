@@ -1,8 +1,11 @@
+# TODO: Completely redo this!
+
 try:
     import readline # Allows for going back through the text in the input prompt
 except ImportError: # It's probably not here
     pass
 
+from typing import Union
 from enum import Enum, auto
 
 HEADER = '\033[95m'
@@ -22,9 +25,9 @@ class Options(Enum):
     Cancel = auto()  # "X"
 
 
-def menu(name: str, values: list, options: bool=False) -> int:
+def menu(name: str, values: list, options: bool=False) -> Union[int, Options]:
     """
-    Builds a menu and prompts the user with it. Returns their response as an int
+    Builds a menu and prompts the user with it. Returns their response as an int or an enum.
 
     Also will re-ask the user if their input was invalid (too high, too low, or not an integer)
 

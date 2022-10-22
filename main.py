@@ -22,7 +22,7 @@ def generate_config():
     else:
         mkdir(dirs.user_data_dir)
     with open(config_file, 'w+') as f:
-        config['pk_token'] = input(f"{mb.OKGREEN}Please enter your PluralKit token! (do `pk!token` in PluralKit's DM): ")
+        config['pk_token'] = input(f"{mb.OKGREEN}Please enter your PluralKit token! (do `pk!token` in PluralKit's DM): ")  # type: ignore
         print(end=mb.ENDC) # Reset terminal colour
         dump(config, f)
 
@@ -56,5 +56,4 @@ except UnauthorisedAccess as e:
 
 
 print(f"Welcome {system.name}!")
-mb.menu("What would you like to do?")
 
